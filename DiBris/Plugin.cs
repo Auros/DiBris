@@ -1,6 +1,8 @@
 ﻿using IPA;
 using SiraUtil;
 using SiraUtil.Zenject;
+using IPA.Config.Stores;
+using Conf = IPA.Config.Config;
 using IPALogger = IPA.Logging.Logger;
 
 namespace DiBris
@@ -9,17 +11,22 @@ namespace DiBris
     public class Plugin
     {
         [Init]
-        public Plugin(IPALogger log, Zenjector zenjector)
+        public Plugin(Conf conf, IPALogger log, Zenjector zenjector)
         {
+            var config = conf.Generated<Config>();
             zenjector
                 .On<PCAppInit>()
-                .Pseudo(Container => Container.BindLoggerAsSiraLogger(log,
+                .Pseudo(Container =>
+                {
+                    Container.BindInstance(config).AsSingle();
+                    Container.BindLoggerAsSiraLogger(log,
 #if DEBUG
                 true
 #else
                 false
 #endif
-                ));
+                );
+                });
         }
 
         [OnEnable]
