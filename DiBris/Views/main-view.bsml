@@ -4,8 +4,8 @@
     <grid id="button-grid" horizontal-fit="PreferredSize" vertical-fit="PreferredSize" child-align="MiddleCenter" cell-size-x="26" cell-size-y="10" spacing-x="3">
       <button text="INFO" pref-width="28" pref-height="10" />
       <button text="TUTORIAL" pref-width="28" pref-height="10" />
-      <button text="GITHUB" pref-width="28" pref-height="10" />
-      <button text="DONATE" pref-width="28" pref-height="10" />
+      <button text="GITHUB" on-click="clicked-github-button" pref-width="28" pref-height="10" />
+      <button text="DONATE" on-click="clicked-donate-button" pref-width="28" pref-height="10" />
       <button text="PROFILES" face-color="#ffd52e" pref-width="28" pref-height="10" />
       <button text="SETTINGS" face-color="#2effd2" pref-width="28" pref-height="10" />
     </grid>

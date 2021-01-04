@@ -33,12 +33,12 @@ namespace DiBris.UI
                 buttons.AddRange(buttonGrid.GetComponentsInChildren<NoTransitionsButton>(true));
             descText.alpha = 0f;
             _textTransitioners.Clear();
-            _textTransitioners.Add(new TextTransitioner("Learn more about this mod.", buttons[0]));
-            _textTransitioners.Add(new TextTransitioner("Start the tutorial to understand the UI.", buttons[1]));
-            _textTransitioners.Add(new TextTransitioner("Open the GitHub page (in your browser).", buttons[2]));
-            _textTransitioners.Add(new TextTransitioner("Donate to the mod creator (opens in browser).", buttons[3]));
-            _textTransitioners.Add(new TextTransitioner("Create, switch, and remove your config profile(s).", buttons[4]));
-            _textTransitioners.Add(new TextTransitioner("Edit the settings for the current profile.", buttons[5]));
+            _textTransitioners.Add(new TextTransitioner("Learn more about this mod", buttons[0]));
+            _textTransitioners.Add(new TextTransitioner("Start the tutorial to understand the menu", buttons[1]));
+            _textTransitioners.Add(new TextTransitioner("Open the GitHub page (in your browser)", buttons[2]));
+            _textTransitioners.Add(new TextTransitioner("Donate to the mod creator (opens in browser)", buttons[3]));
+            _textTransitioners.Add(new TextTransitioner("Create, switch, and remove your config profile(s)", buttons[4]));
+            _textTransitioners.Add(new TextTransitioner("Edit the settings for the current profile", buttons[5]));
             foreach (var transitioner in _textTransitioners)
                 transitioner.StateChanged += ButtonSelectionStateChanged;
         }
@@ -67,6 +67,9 @@ namespace DiBris.UI
                 descText.alpha = value;
             }, 0.2f, EaseType.InSine, 0.1f), this);
         }
+
+        [UIAction("clicked-github-button")] protected void ClickedGithubButton() => Application.OpenURL("https://github.com/Auros/DiBris");
+        [UIAction("clicked-donate-button")] protected void ClickedDonateButton() => Application.OpenURL("https://ko-fi.com/aurosnex");
 
         private class TextTransitioner : IDisposable
         {
