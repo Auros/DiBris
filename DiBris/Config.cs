@@ -12,6 +12,9 @@ namespace DiBris
     [Serializable]
     internal class Config
     {
+        [UseConverter(typeof(VersionConverter))]
+        public SemVer.Version Version = new SemVer.Version("0.0.0");
+
         public string Name { get; set; } = "Default";
         public bool RemoveDebris { get; set; } = false;
         public float LifetimeMultiplier { get; set; } = 1f;
