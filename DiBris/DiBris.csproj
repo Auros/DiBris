@@ -46,7 +46,7 @@
           <Private>False</Private>
         </Reference>
         <Reference Include="SemVer">
-          <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Beat Saber\Libs\SemVer.dll</HintPath>
+          <HintPath>$(BeatSaberDir)\Libs\SemVer.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="SiraUtil">
@@ -62,7 +62,7 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.AudioModule">
-          <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+          <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.PhysicsModule">
@@ -128,9 +128,9 @@
     </ItemGroup>
     
     <ItemGroup>
-        <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
-        <None Include="Directory.Build.targets" Condition="Exists('Directory.Build.targets')" />
-        <None Include="DiBris.csproj.user" Condition="Exists('DiBris.csproj.user')" />
+        <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" Visible="false" />
+        <None Include="Directory.Build.targets" Condition="Exists('Directory.Build.targets')" Visible="false" />
+        <None Include="DiBris.csproj.user" Condition="Exists('DiBris.csproj.user')" Visible="false" />
     </ItemGroup>
 
     <ItemGroup>
