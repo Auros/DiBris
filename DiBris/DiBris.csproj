@@ -37,6 +37,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Views\main-view.bsml" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Reference Include="BeatmapCore">
           <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\BeatmapCore.dll</HintPath>
           <Private>False</Private>
@@ -125,6 +129,7 @@
 
     <ItemGroup>
         <EmbeddedResource Include="manifest.json" />
+        <EmbeddedResource Include="Views\main-view.bsml" />
     </ItemGroup>
 
     <ItemGroup>	
@@ -142,12 +147,6 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Managers\" />
-      <Folder Include="Views\" />
-      <Folder Include="UI\" />
     </ItemGroup>
 
 </Project>

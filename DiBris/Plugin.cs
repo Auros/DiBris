@@ -1,7 +1,9 @@
 ﻿using IPA;
 using SiraUtil;
+using DiBris.UI;
 using IPA.Loader;
 using IPA.Utilities;
+using DiBris.Managers;
 using SiraUtil.Zenject;
 using DiBris.Components;
 using IPA.Config.Stores;
@@ -28,6 +30,15 @@ namespace DiBris
                 {
                     Container.BindInstance(config).AsSingle();
                     Container.BindLoggerAsSiraLogger(log);
+                });
+
+            zenjector
+                .On<MenuInstaller>()
+                .Pseudo(Container =>
+                {
+                    Container.BindInterfacesTo<MenuButtonManager>().AsSingle();
+                    Container.Bind<BriMainView>().FromNewComponentAsViewController().AsSingle();
+                    Container.Bind<BriFlowCoordinator>().FromNewComponentOnNewGameObject(nameof(BriFlowCoordinator)).AsSingle();
                 });
 
             zenjector
