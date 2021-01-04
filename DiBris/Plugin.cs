@@ -1,9 +1,10 @@
 ﻿using IPA;
 using SiraUtil;
+using IPA.Loader;
 using IPA.Utilities;
 using SiraUtil.Zenject;
-using IPA.Config.Stores;
 using DiBris.Components;
+using IPA.Config.Stores;
 using SiraUtil.Attributes;
 using Conf = IPA.Config.Config;
 using IPALogger = IPA.Logging.Logger;
@@ -16,9 +17,11 @@ namespace DiBris
         internal static readonly FieldAccessor<NoteCutCoreEffectsSpawner, NoteDebrisSpawner>.Accessor DebrisSpawner = FieldAccessor<NoteCutCoreEffectsSpawner, NoteDebrisSpawner>.GetAccessor("_noteDebrisSpawner");
 
         [Init]
-        public Plugin(Conf conf, IPALogger log, Zenjector zenjector)
+        public Plugin(Conf conf, IPALogger log, Zenjector zenjector, PluginMetadata metadata)
         {
             var config = conf.Generated<Config>();
+            config.Version = metadata.Version;
+
             zenjector
                 .On<PCAppInit>()
                 .Pseudo(Container =>
