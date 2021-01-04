@@ -25,6 +25,8 @@ namespace DiBris.UI
         private readonly List<NoTransitionsButton> buttons = new List<NoTransitionsButton>();
         private readonly List<TextTransitioner> _textTransitioners = new List<TextTransitioner>();
 
+        public event Action<BriFlowCoordinator.NavigationEvent>? EventNavigated;
+
         protected override void DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
         {
             base.DidActivate(firstActivation, addedToHierarchy, screenSystemEnabling);
@@ -68,6 +70,7 @@ namespace DiBris.UI
             }, 0.2f, EaseType.InSine, 0.1f), this);
         }
 
+        [UIAction("clicked-info-button")] protected void ClickedInfoButton() => EventNavigated?.Invoke(BriFlowCoordinator.NavigationEvent.Info);
         [UIAction("clicked-github-button")] protected void ClickedGithubButton() => Application.OpenURL("https://github.com/Auros/DiBris");
         [UIAction("clicked-donate-button")] protected void ClickedDonateButton() => Application.OpenURL("https://ko-fi.com/aurosnex");
 

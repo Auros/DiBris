@@ -38,6 +38,7 @@ namespace DiBris
                 {
                     Container.BindInterfacesTo<MenuButtonManager>().AsSingle();
                     Container.Bind<BriMainView>().FromNewComponentAsViewController().AsSingle();
+                    Container.Bind<BriInfoView>().FromNewComponentAsViewController().AsSingle();
                     Container.Bind<BriFlowCoordinator>().FromNewComponentOnNewGameObject(nameof(BriFlowCoordinator)).AsSingle();
                 });
 

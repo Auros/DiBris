@@ -37,6 +37,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Views\info-view.bsml" />
       <None Remove="Views\main-view.bsml" />
     </ItemGroup>
 
@@ -129,6 +130,7 @@
 
     <ItemGroup>
         <EmbeddedResource Include="manifest.json" />
+        <EmbeddedResource Include="Views\info-view.bsml" />
         <EmbeddedResource Include="Views\main-view.bsml" />
     </ItemGroup>
 
