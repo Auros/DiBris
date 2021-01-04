@@ -7,15 +7,15 @@ namespace DiBris.Models
     [Serializable]
     public class DisableParam
     {
-        public virtual float NJS { get; set; } = 20f;
-        public virtual float NPS { get; set; } = 6f;
-        public virtual float Length { get; set; } = 180f;
+        public float NJS { get; set; } = 20f;
+        public float NPS { get; set; } = 6f;
+        public float Length { get; set; } = 180f;
 
-        public virtual bool DoNJS { get; set; }
-        public virtual bool DoNPS { get; set; }
-        public virtual bool DoLength { get; set; }
+        public bool DoNJS { get; set; }
+        public bool DoNPS { get; set; }
+        public bool DoLength { get; set; }
     
         [UseConverter(typeof(EnumConverter<DisableMode>))]
-        public virtual DisableMode Mode { get; set; }
+        public DisableMode Mode { get; set; }
     }
 }

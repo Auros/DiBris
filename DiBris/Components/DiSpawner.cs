@@ -1,6 +1,7 @@
 ﻿using Zenject;
 using UnityEngine;
 using IPA.Utilities;
+using SiraUtil.Tools;
 using Random = UnityEngine.Random;
 
 namespace DiBris.Components
@@ -8,6 +9,7 @@ namespace DiBris.Components
     internal class DiSpawner : NoteDebrisSpawner
     {
         private Config _config = null!;
+        private bool _breakerSwitch = false;
 
         private static readonly FieldAccessor<NoteDebrisRigidbodyPhysics, NoteDebrisSimplePhysics>.Accessor SimplePhysics = FieldAccessor<NoteDebrisRigidbodyPhysics, NoteDebrisSimplePhysics>.GetAccessor("_simplePhysics");
         private static readonly FieldAccessor<NoteDebrisRigidbodyPhysics, Rigidbody>.Accessor RigidBody = FieldAccessor<NoteDebrisRigidbodyPhysics, Rigidbody>.GetAccessor("_rigidbody");
@@ -15,14 +17,46 @@ namespace DiBris.Components
         private static readonly FieldAccessor<NoteDebris, NoteDebrisPhysics>.Accessor RigidPhysics = FieldAccessor<NoteDebris, NoteDebrisPhysics>.GetAccessor("_physics");
 
         [Inject]
-        protected void Construct(Config config)
+        protected void Construct(Config config, SiraLog siraLog, IDifficultyBeatmap beatmap)
         {
             _config = config;
+            var parameters = config.Parameters;
+            bool shouldBreak = false;
+            bool failsLength = false;
+            bool failsNJS = false;
+            bool failsNPS = false;
+            if (parameters.DoLength)
+            {
+                siraLog.Info(beatmap.level.songDuration);
+                if (beatmap.level.songDuration >= parameters.Length)
+                    failsLength = true;
+            }
+            if (!shouldBreak && parameters.DoNJS)
+            {
+                if (beatmap.noteJumpMovementSpeed >= parameters.NJS)
+                    failsNJS = true;
+            }
+            if (parameters.DoNPS)
+            {
+                var data = beatmap.beatmapData;
+                var levelData = beatmap.level.beatmapLevelData;
+                if (data.cuttableNotesType / levelData.audioClip.length >= parameters.NPS)
+                    failsNPS = true;
+            }
+            if (parameters.Mode == Models.DisableMode.All)
+            {
+                shouldBreak = (!parameters.DoLength || failsLength) && (!parameters.DoNJS || failsNJS) && (!parameters.DoNPS || failsNPS);
+            }
+            else
+            {
+                shouldBreak = failsLength || failsNJS || failsNPS;
+            }
+            _breakerSwitch = shouldBreak;
         }
 
         public override void SpawnDebris(Vector3 cutPoint, Vector3 cutNormal, float saberSpeed, Vector3 saberDir, Vector3 notePos, Quaternion noteRotation, ColorType colorType, float timeToNextColorNote, Vector3 moveVec)
         {
-            if (_config.RemoveDebris)
+            if (_config.RemoveDebris || _breakerSwitch)
             {
                 return;
             }
