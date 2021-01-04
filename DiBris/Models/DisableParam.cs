@@ -1,8 +1,10 @@
-﻿using IPA.Config.Stores.Attributes;
+﻿using System;
+using IPA.Config.Stores.Attributes;
 using IPA.Config.Stores.Converters;
 
 namespace DiBris.Models
 {
+    [Serializable]
     public class DisableParam
     {
         public virtual float NJS { get; set; } = 20f;

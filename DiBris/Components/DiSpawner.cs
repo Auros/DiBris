@@ -9,10 +9,10 @@ namespace DiBris.Components
     {
         private Config _config = null!;
 
-        private static FieldAccessor<NoteDebrisRigidbodyPhysics, NoteDebrisSimplePhysics>.Accessor SimplePhysics = FieldAccessor<NoteDebrisRigidbodyPhysics, NoteDebrisSimplePhysics>.GetAccessor("_simplePhysics");
-        private static FieldAccessor<NoteDebrisRigidbodyPhysics, Rigidbody>.Accessor RigidBody = FieldAccessor<NoteDebrisRigidbodyPhysics, Rigidbody>.GetAccessor("_rigidbody");
-        private static FieldAccessor<NoteDebrisSimplePhysics, Vector3>.Accessor Gravity = FieldAccessor<NoteDebrisSimplePhysics, Vector3>.GetAccessor("_gravity");
-        private static FieldAccessor<NoteDebris, NoteDebrisPhysics>.Accessor RigidPhysics = FieldAccessor<NoteDebris, NoteDebrisPhysics>.GetAccessor("_physics");
+        private static readonly FieldAccessor<NoteDebrisRigidbodyPhysics, NoteDebrisSimplePhysics>.Accessor SimplePhysics = FieldAccessor<NoteDebrisRigidbodyPhysics, NoteDebrisSimplePhysics>.GetAccessor("_simplePhysics");
+        private static readonly FieldAccessor<NoteDebrisRigidbodyPhysics, Rigidbody>.Accessor RigidBody = FieldAccessor<NoteDebrisRigidbodyPhysics, Rigidbody>.GetAccessor("_rigidbody");
+        private static readonly FieldAccessor<NoteDebrisSimplePhysics, Vector3>.Accessor Gravity = FieldAccessor<NoteDebrisSimplePhysics, Vector3>.GetAccessor("_gravity");
+        private static readonly FieldAccessor<NoteDebris, NoteDebrisPhysics>.Accessor RigidPhysics = FieldAccessor<NoteDebris, NoteDebrisPhysics>.GetAccessor("_physics");
 
         [Inject]
         protected void Construct(Config config)
@@ -27,16 +27,18 @@ namespace DiBris.Components
                 return;
             }
 
+            notePos *= _config.AbsolutePositionScale;
+            notePos += _config.AbsolutePositionOffset;
+
             var debrisA = DebrisDecorator(cutPoint.y, cutNormal, saberSpeed, saberDir, timeToNextColorNote, moveVec, out float liquid, out Vector3 next, out Vector3 forceEn, out Vector3 torque);
             debrisA.transform.localScale *= _config.Scale;
-            debrisA.Init(colorType, notePos, noteRotation, transform.position, transform.rotation, cutPoint, -cutNormal, (-forceEn * _fromCenterSpeed + next) * _config.VelocityMultiplier, -torque, liquid * _config.LifetimeMultiplier);
+            MultiplyGravity(debrisA, _config.GravityMultiplier);
+            debrisA.Init(colorType, notePos, noteRotation, transform.position, transform.rotation, cutPoint, -cutNormal, (-forceEn * _fromCenterSpeed + next) * _config.VelocityMultiplier, -torque * _config.RotationMultiplier, liquid * _config.LifetimeMultiplier);
 
             var debrisB = DebrisDecorator(cutPoint.y, cutNormal, saberSpeed, saberDir, timeToNextColorNote, moveVec, out float liquid2, out Vector3 next2, out Vector3 forceEn2, out Vector3 torque2);
             debrisB.transform.localScale *= _config.Scale;
-            debrisB.Init(colorType, notePos, noteRotation, transform.position, transform.rotation, cutPoint, cutNormal, (forceEn2 * _fromCenterSpeed + next2) * _config.VelocityMultiplier, torque2, liquid2 * _config.LifetimeMultiplier);
-
-            MultiplyGravity(debrisA, _config.GravityMultiplier);
             MultiplyGravity(debrisB, _config.GravityMultiplier);
+            debrisB.Init(colorType, notePos, noteRotation, transform.position, transform.rotation, cutPoint, cutNormal, (forceEn2 * _fromCenterSpeed + next2) * _config.VelocityMultiplier, torque2 * _config.RotationMultiplier, liquid2 * _config.LifetimeMultiplier);
         }
 
         private NoteDebris DebrisDecorator(float cutY, Vector3 cutNormal, float saberSpeed, Vector3 saberDir, float timeToNextColorNote, Vector3 moveVec, out float liquid, out Vector3 next, out Vector3 forceEn, out Vector3 torque)
@@ -52,6 +54,10 @@ namespace DiBris.Components
             forceEn = transform.rotation * (cutNormal + Random.onUnitSphere * 0.1f);
             torque = transform.rotation * Vector3.Cross(cutNormal, projection) * _rotation / Mathf.Max(1f, timeToNextColorNote * 2f);
             next.y = cutY >= 1.3 ? Mathf.Max(next.y, 0f) : Mathf.Min(next.y, 0);
+
+            var rigidPhysics = (RigidPhysics(ref debris) as NoteDebrisRigidbodyPhysics)!;
+            var simplePhysics = SimplePhysics(ref rigidPhysics);
+
             return debris;
         }
 

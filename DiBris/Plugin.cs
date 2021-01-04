@@ -1,11 +1,11 @@
 ﻿using IPA;
 using SiraUtil;
+using IPA.Utilities;
 using SiraUtil.Zenject;
 using IPA.Config.Stores;
+using DiBris.Components;
 using Conf = IPA.Config.Config;
 using IPALogger = IPA.Logging.Logger;
-using DiBris.Components;
-using IPA.Utilities;
 
 namespace DiBris
 {
@@ -35,14 +35,11 @@ namespace DiBris
                 .Pseudo((_) => { })
                 .Mutate<NoteDebrisSpawner>((ctx, spawner) =>
                 {
-                    if (spawner.GetType() == typeof(NoteDebrisSpawner))
-                    {
-                        var diSpawner = spawner.Upgrade<NoteDebrisSpawner, DiSpawner>();
-                        var effectSpawner = ctx.GetInjected<NoteCutCoreEffectsSpawner>();
-                        ReflectionUtil.SetField<NoteCutCoreEffectsSpawner, NoteDebrisSpawner>(effectSpawner, "_noteDebrisSpawner", diSpawner);
-                        ctx.Container.QueueForInject(diSpawner);
-                        ctx.AddInjectable(diSpawner);
-                    }
+                    var diSpawner = spawner.Upgrade<NoteDebrisSpawner, DiSpawner>();
+                    var effectSpawner = ctx.GetInjected<NoteCutCoreEffectsSpawner>();
+                    ReflectionUtil.SetField<NoteCutCoreEffectsSpawner, NoteDebrisSpawner>(effectSpawner, "_noteDebrisSpawner", diSpawner);
+                    ctx.Container.QueueForInject(diSpawner);
+                    ctx.AddInjectable(diSpawner);
                 });
         }
 

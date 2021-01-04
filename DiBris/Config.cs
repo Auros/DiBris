@@ -1,30 +1,30 @@
-﻿using System.Linq;
+﻿using System;
+using UnityEngine;
 using DiBris.Models;
 using IPA.Config.Stores;
-using System.Collections.Generic;
+using SiraUtil.Converters;
 using IPA.Config.Stores.Attributes;
-using IPA.Config.Stores.Converters;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo(GeneratedStore.AssemblyVisibilityTarget)]
 namespace DiBris
 {
+    [Serializable]
     internal class Config
     {
-        public virtual bool DoGravity { get; set; } = true;
-        public virtual bool RemoveDebris { get; set; } = false;
-        public virtual float LifetimeMultiplier { get; set; } = 1f;
-        public virtual float VelocityMultiplier { get; set; } = 1f;
-        public virtual float GravityMultiplier { get; set; } = 1f;
-        public virtual float Scale { get; set; } = 1f;
+        public string Name { get; set; } = "Default";
+        public bool RemoveDebris { get; set; } = false;
+        public float LifetimeMultiplier { get; set; } = 1f;
+        public float VelocityMultiplier { get; set; } = 1f;
+        public float GravityMultiplier { get; set; } = 1f;
+        public float RotationMultiplier { get; set; } = 1f;
+        public float Scale { get; set; } = 1f;
+
+        [UseConverter(typeof(Vector3Converter))]
+        public Vector3 AbsolutePositionOffset { get; set; } = Vector3.zero;
+        public float AbsolutePositionScale { get; set; } = 1f;
 
         [NonNullable]
-        public virtual DisableParam Parameters { get; set; } = new DisableParam();
-
-        [UseConverter(typeof(ListConverter<GravityMode, EnumConverter<GravityMode>>)), NonNullable]
-        public virtual List<GravityMode> Modes { get; set; } = new List<GravityMode>();
-
-        [Ignore]
-        public GravityMode Mode => (GravityMode)Modes.Select(m => (int)m).Distinct().Sum();
+        public DisableParam Parameters { get; set; } = new DisableParam();
     }
 }
