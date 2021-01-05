@@ -12,5 +12,4 @@
     <text id="desc-text" text=" " face-color="#adadad" align="Right" italics="true" font-size="5" />
   </vertical>
   <text text="~version" align="Left" size-delta-x="82" anchor-pos-y="-10" font-size="5.5" italics="true" />
-  <modal size-delta-x="50" size-delta-y="30" show-event="show-modal" hide-event="hide-modal"></modal>
 </bg>
