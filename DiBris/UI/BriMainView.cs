@@ -83,6 +83,7 @@ namespace DiBris.UI
         [UIAction("clicked-info-button")] protected void ClickedInfoButton() => EventNavigated?.Invoke(BriFlowCoordinator.NavigationEvent.Info);
         [UIAction("clicked-github-button")] protected void ClickedGithubButton() => Application.OpenURL("https://github.com/Auros/DiBris");
         [UIAction("clicked-donate-button")] protected void ClickedDonateButton() => Application.OpenURL("https://ko-fi.com/aurosnex");
+        [UIAction("clicked-settings-button")] protected void ClickedSettingsButton() => EventNavigated?.Invoke(BriFlowCoordinator.NavigationEvent.Settings);
 
         private class TextTransitioner : IDisposable
         {

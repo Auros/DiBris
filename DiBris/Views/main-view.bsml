@@ -2,12 +2,12 @@
   <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize">
     <img src="https://cdn.discordapp.com/avatars/113073785522941952/d650efdb2f6b5306bc52ef632344bc16.png?size=512" pref-width="50" pref-height="50" preserve-aspect="true" />
     <grid id="button-grid" horizontal-fit="PreferredSize" vertical-fit="PreferredSize" child-align="MiddleCenter" cell-size-x="26" cell-size-y="10" spacing-x="3">
-      <button text="INFO"     on-click="clicked-info-button"    pref-width="28" pref-height="10" />
-      <button text="TUTORIAL"                                   pref-width="28" pref-height="10" />
-      <button text="GITHUB"   on-click="clicked-github-button"  pref-width="28" pref-height="10" />
-      <button text="DONATE"   on-click="clicked-donate-button"  pref-width="28" pref-height="10" />
-      <button text="PROFILES" face-color="#ffd52e" pref-width="28" pref-height="10" />
-      <button text="SETTINGS" face-color="#2effd2" pref-width="28" pref-height="10" />
+      <button text="INFO"     on-click="clicked-info-button"      pref-width="28" pref-height="10" />
+      <button text="TUTORIAL"                                     pref-width="28" pref-height="10" />
+      <button text="GITHUB"   on-click="clicked-github-button"    pref-width="28" pref-height="10" />
+      <button text="DONATE"   on-click="clicked-donate-button"    pref-width="28" pref-height="10" />
+      <button text="PROFILES"                                     pref-width="28" pref-height="10" face-color="#ffd52e" />
+      <button text="SETTINGS" on-click="clicked-settings-button"  pref-width="28" pref-height="10" face-color="#2effd2" />
     </grid>
     <text id="desc-text" text=" " face-color="#adadad" align="Right" italics="true" font-size="5" />
   </vertical>

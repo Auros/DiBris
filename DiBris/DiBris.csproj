@@ -38,8 +38,13 @@
 
     <ItemGroup>
       <None Remove="Resources\info.txt" />
+      <None Remove="Views\conditions.bsml" />
       <None Remove="Views\info-view.bsml" />
       <None Remove="Views\main-view.bsml" />
+      <None Remove="Views\settings-view.bsml" />
+      <None Remove="Views\Settings\general.bsml" />
+      <None Remove="Views\Settings\multipliers.bsml" />
+      <None Remove="Views\Settings\positioning.bsml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -132,8 +137,13 @@
     <ItemGroup>
         <EmbeddedResource Include="manifest.json" />
         <EmbeddedResource Include="Resources\info.txt" />
+        <EmbeddedResource Include="Views\Settings\conditions.bsml" />
         <EmbeddedResource Include="Views\info-view.bsml" />
         <EmbeddedResource Include="Views\main-view.bsml" />
+        <EmbeddedResource Include="Views\settings-view.bsml" />
+        <EmbeddedResource Include="Views\Settings\general.bsml" />
+        <EmbeddedResource Include="Views\Settings\multipliers.bsml" />
+        <EmbeddedResource Include="Views\Settings\positioning.bsml" />
     </ItemGroup>
 
     <ItemGroup>	

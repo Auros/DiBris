@@ -1,0 +1,6 @@
+﻿<bg horizontal-fit="PreferredSize" vertical-fit="PreferredSize" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
+  <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="round-rect-panel" bg-color="grey" pad="2" pref-width="90">
+    <string-setting text="Profile Name"  get-event="refresh" value="profile-name"      apply-on-change="true" hover-hint="Name this setting profile so you know what it's called." />
+    <bool-setting   text="Remove Debris" get-event="refresh" value="remove-all-debris" apply-on-change="true" hover-hint="Completely prevents debris from spawning under this profile. This setting overrides all other settings for this profile." />
+  </vertical>
+</bg>
