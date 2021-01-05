@@ -1,9 +1,9 @@
 ﻿<bg horizontal-fit="PreferredSize" vertical-fit="PreferredSize" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
   <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="round-rect-panel" bg-color="grey" pad="2" pref-width="90">
-    <slider-setting text="Lifetime Multiplier" get-event="update" value="lifetime" apply-on-change="true" formatter="multiplier-formatter" min="0" max="10" increment="0.25" />
+    <slider-setting text="Lifetime Multiplier" get-event="update" value="lifetime" apply-on-change="true" formatter="multiplier-formatter" min="0"  max="10" increment="0.25" />
     <slider-setting text="Velocity Multiplier" get-event="update" value="velocity" apply-on-change="true" formatter="multiplier-formatter" min="-5" max="5" increment="0.25" />
     <slider-setting text="Gravity Multiplier"  get-event="update" value="gravity"  apply-on-change="true" formatter="multiplier-formatter" min="-5" max="5" increment="0.25" />
     <slider-setting text="Rotation Multiplier" get-event="update" value="rotation" apply-on-change="true" formatter="multiplier-formatter" min="-5" max="5" increment="0.25" />
-    <slider-setting text="Scale"               get-event="update" value="scale"    apply-on-change="true" formatter="percent-formatter"    min="0" max="10" increment="0.1" />
+    <slider-setting text="Scale"               get-event="update" value="scale"    apply-on-change="true" formatter="percent-formatter"    min="0"  max="5" increment="0.1" />
   </vertical>
 </bg>

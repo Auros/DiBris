@@ -1,6 +1,26 @@
 ﻿<bg horizontal-fit="PreferredSize" vertical-fit="PreferredSize" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
   <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="round-rect-panel" bg-color="grey" pad="2" pref-width="90">
-    <string-setting text="Profile Name"  get-event="refresh" value="profile-name"      apply-on-change="true" hover-hint="Name this setting profile so you know what it's called." />
-    <bool-setting   text="Remove Debris" get-event="refresh" value="remove-all-debris" apply-on-change="true" hover-hint="Completely prevents debris from spawning under this profile. This setting overrides all other settings for this profile." />
+    <string-setting text="Profile Name"  get-event="update" value="profile-name"      apply-on-change="true" hover-hint="Name this setting profile so you know what it's called." />
+    <bool-setting   text="Remove Debris" get-event="update" value="remove-all-debris" apply-on-change="true" hover-hint="Completely prevents debris from spawning under this profile. This setting overrides all other settings for this profile." />
+    <horizontal pref-width="90" horizontal-fit="PreferredSize" spacing="2">
+      <custom-list id="mirror-list" visible-cells="3" anchor-pos-x="0" cell-size="10" list-width="90">
+        <horizontal child-align="MiddleLeft" pref-width="90" pref-height="10">
+          <horizontal pref-width="12" horizontal-fit="PreferredSize" size-delta-x="16" spacing="2" pad="2">
+            <text text="~status" font-color="~status-color" align="Left" font-size="5" overflow-mode="Truncate" />
+            <image pref-width="0.5" src="DiBris.Resources.pixel.png" />
+          </horizontal>
+          <horizontal pref-width="53" pref-height="10">
+            <text text="~name" overflow-mode="Ellipsis" align="Left" font-size="5" />
+          </horizontal>
+          <horizontal pref-width="20" spacing="1">
+            <button text="~toggle-string" font-size="4" pref-width="16"  on-click="change-state" />
+          </horizontal>
+        </horizontal>
+      </custom-list>
+      <vertical vertical-fit="Unconstrained" horizontal-fit="PreferredSize" pref-width="12" spacing="15">
+        <page-button dir="Up" event-click="mirror-list#PageUp" pref-width="12" />
+        <page-button dir="Down" event-click="mirror-list#PageDown" pref-width="12" />
+      </vertical>
+    </horizontal>
   </vertical>
 </bg>

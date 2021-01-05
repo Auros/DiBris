@@ -8,15 +8,17 @@ namespace DiBris.UI
     {
         private BriMainView _briMainView = null!;
         private BriInfoView _briInfoView = null!;
+        private BriProfileView _briProfileView = null!;
         private BriSettingsView _briSettingsView = null!;
 
         private MainFlowCoordinator _mainFlowCoordinator = null!;
 
         [Inject]
-        public void Construct(BriMainView briMainView, BriInfoView briInfoView, BriSettingsView briSettingsView, MainFlowCoordinator mainFlowCoordinator)
+        public void Construct(BriMainView briMainView, BriInfoView briInfoView, BriProfileView briProfileView, BriSettingsView briSettingsView, MainFlowCoordinator mainFlowCoordinator)
         {
             _briMainView = briMainView;
             _briInfoView = briInfoView;
+            _briProfileView = briProfileView;
             _briSettingsView = briSettingsView;
             _mainFlowCoordinator = mainFlowCoordinator;
         }
@@ -39,6 +41,10 @@ namespace DiBris.UI
                 case NavigationEvent.Info:
                     SetLeftScreenViewController(_briInfoView, ViewController.AnimationType.In);
                     SetRightScreenViewController(null, ViewController.AnimationType.Out);
+                    break;
+                case NavigationEvent.Profile:
+                    SetLeftScreenViewController(null, ViewController.AnimationType.Out);
+                    SetRightScreenViewController(_briProfileView, ViewController.AnimationType.In);
                     break;
                 case NavigationEvent.Settings:
                     SetLeftScreenViewController(null, ViewController.AnimationType.Out);

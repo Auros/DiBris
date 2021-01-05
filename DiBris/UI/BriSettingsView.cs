@@ -48,7 +48,10 @@ namespace DiBris.UI
         {
             base.DidActivate(firstActivation, addedToHierarchy, screenSystemEnabling);
             tabSelector.textSegmentedControl.didSelectCellEvent += SelectedCell;
+
             parserParams.EmitEvent("refresh");
+            foreach (IRefreshable refreshable in settingWindows)
+                refreshable.Refresh();
         }
 
         private async void SelectedCell(HMUI.SegmentedControl _, int index)

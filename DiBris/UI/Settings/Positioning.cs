@@ -16,21 +16,24 @@ namespace DiBris.UI.Settings
         protected float PosOffsetX
         {
             get => _config.AbsolutePositionOffset.x;
-            set => _config.AbsolutePositionOffset = new UnityEngine.Vector3(value, _config.AbsolutePositionOffset.y, _config.AbsolutePositionOffset.z);
+            set
+            {
+                _config.AbsolutePositionOffsetX = value;
+            }
         }
 
         [UIValue("pos-offset-y")]
         protected float PosOffsetY
         {
             get => _config.AbsolutePositionOffset.y;
-            set => _config.AbsolutePositionOffset = new UnityEngine.Vector3(_config.AbsolutePositionOffset.x, value, _config.AbsolutePositionOffset.z);
+            set => _config.AbsolutePositionOffsetY = value;
         }
 
         [UIValue("pos-offset-z")]
         protected float PosOffsetZ
         {
             get => _config.AbsolutePositionOffset.z;
-            set => _config.AbsolutePositionOffset = new UnityEngine.Vector3(_config.AbsolutePositionOffset.x, _config.AbsolutePositionOffset.y, value);
+            set => _config.AbsolutePositionOffsetZ = value;
         }
 
         [UIValue("pos-scale")]

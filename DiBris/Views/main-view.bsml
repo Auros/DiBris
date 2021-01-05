@@ -6,7 +6,7 @@
       <button text="TUTORIAL"                                     pref-width="28" pref-height="10" />
       <button text="GITHUB"   on-click="clicked-github-button"    pref-width="28" pref-height="10" />
       <button text="DONATE"   on-click="clicked-donate-button"    pref-width="28" pref-height="10" />
-      <button text="PROFILES"                                     pref-width="28" pref-height="10" face-color="#ffd52e" />
+      <button text="PROFILES" on-click="clicked-profile-button"   pref-width="28" pref-height="10" face-color="#ffd52e" />
       <button text="SETTINGS" on-click="clicked-settings-button"  pref-width="28" pref-height="10" face-color="#2effd2" />
     </grid>
     <text id="desc-text" text=" " face-color="#adadad" align="Right" italics="true" font-size="5" />

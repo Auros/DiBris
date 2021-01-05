@@ -38,9 +38,11 @@
 
     <ItemGroup>
       <None Remove="Resources\info.txt" />
+      <None Remove="Resources\pixel.png" />
       <None Remove="Views\conditions.bsml" />
       <None Remove="Views\info-view.bsml" />
       <None Remove="Views\main-view.bsml" />
+      <None Remove="Views\profile-view.bsml" />
       <None Remove="Views\settings-view.bsml" />
       <None Remove="Views\Settings\general.bsml" />
       <None Remove="Views\Settings\multipliers.bsml" />
@@ -58,6 +60,10 @@
         </Reference>
         <Reference Include="GameplayCore">
           <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\GameplayCore.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+          <HintPath>$(BeatSaberDir)\Libs\Newtonsoft.Json.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="SemVer">
@@ -137,6 +143,8 @@
     <ItemGroup>
         <EmbeddedResource Include="manifest.json" />
         <EmbeddedResource Include="Resources\info.txt" />
+        <EmbeddedResource Include="Resources\pixel.png" />
+        <EmbeddedResource Include="Views\profile-view.bsml" />
         <EmbeddedResource Include="Views\Settings\conditions.bsml" />
         <EmbeddedResource Include="Views\info-view.bsml" />
         <EmbeddedResource Include="Views\main-view.bsml" />

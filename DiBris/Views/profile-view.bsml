@@ -1,0 +1,23 @@
+﻿<bg horizontal-fit="PreferredSize" vertical-fit="PreferredSize" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
+  <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize">
+    <horizontal horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="panel-top-gradient" bg-color="orange" pref-width="90">
+      <text text="Profiles" align="Center" font-size="7" />
+    </horizontal>
+    <horizontal horizontal-fit="PreferredSize" vertical-fit="PreferredSize" spacing="2" pref-width="90">
+      <text text="~status-text" align="Center" italics="true" />
+    </horizontal>
+    <horizontal horizontal-fit="PreferredSize" vertical-fit="PreferredSize" spacing="2" pref-width="90">
+      <text text="~active-profile" align="Center" italics="true" />
+    </horizontal>
+    <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" pref-height="50">
+      <page-button dir="Up" event-click="profile-list#PageUp" />
+    <list id="profile-list" list-style="Simple" />
+    <page-button dir="Down" event-click="profile-list#PageDown" />
+    </vertical>
+    <horizontal horizontal-fit="PreferredSize" vertical-fit="PreferredSize" pref-width="90">
+      <button text="Save Settings"   on-click="save"   pref-width="28" hover-hint="Saves/overwrites your active settings to a profile." />
+      <button text="Load Selected"   on-click="load"   pref-width="28" hover-hint="Loads the currently selected profile." />
+      <button text="Delete Selected" on-click="delete" pref-width="28" hover-hint="Deletes the currently seelcted profile." />
+    </horizontal>
+  </vertical>
+</bg>

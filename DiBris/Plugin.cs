@@ -29,6 +29,7 @@ namespace DiBris
                 .Pseudo(Container =>
                 {
                     Container.BindInstance(metadata).WithId(nameof(DiBris)).AsCached();
+                    Container.Bind<ProfileManager>().AsSingle();
                     Container.BindInstance(config).AsSingle();
                     Container.BindLoggerAsSiraLogger(log);
                 });
@@ -41,6 +42,7 @@ namespace DiBris
                     Container.BindInterfacesTo<MenuButtonManager>().AsSingle();
                     Container.Bind<BriMainView>().FromNewComponentAsViewController().AsSingle();
                     Container.Bind<BriInfoView>().FromNewComponentAsViewController().AsSingle();
+                    Container.Bind<BriProfileView>().FromNewComponentAsViewController().AsSingle();
                     Container.Bind<BriSettingsView>().FromNewComponentAsViewController().AsSingle();
                     Container.Bind<BriFlowCoordinator>().FromNewComponentOnNewGameObject(nameof(BriFlowCoordinator)).AsSingle();
                 });
