@@ -28,6 +28,7 @@ namespace DiBris
                 .On<PCAppInit>()
                 .Pseudo(Container =>
                 {
+                    Container.BindInstance(metadata).WithId(nameof(DiBris)).AsCached();
                     Container.BindInstance(config).AsSingle();
                     Container.BindLoggerAsSiraLogger(log);
                 });

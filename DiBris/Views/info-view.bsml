@@ -4,7 +4,7 @@
       <text text="Info" align="Center" font-size="7" />
     </horizontal>
     <horizontal horizontal-fit="PreferredSize" vertical-fit="PreferredSize" pref-width="90" pref-height="60">
-      <text-page text="hello" />
+      <text-page text="~info-text" />
     </horizontal>
   </vertical>
 </bg>

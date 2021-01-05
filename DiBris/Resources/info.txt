@@ -1,0 +1,19 @@
+﻿<size=125%><align="center">What is DiBris?</align></size>
+
+<color=#e3e3e3><indent=3>DiBris is a mod which allows you to customize your debris.</indent></color>
+<color=#e3e3e3><indent=3>This mod was originally commissioned by Mawntee#6969</indent></color>
+
+<size=125%><align="center">What can I customize?</align></size>
+
+- <color=#e3e3e3><indent=3>Completely remove debris (so it doesn't spawn at all)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Lifetime (how long it's visible before it fades)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Velocity (how fast it moves)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Rotation (how much it rotates)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Gravity</indent></color>
+- <color=#e3e3e3><indent=3>Debris Scale</indent></color>
+- <color=#e3e3e3><indent=3>Debris Spawn Offset</indent></color>
+- <color=#e3e3e3><indent=3>Auto-enable/disable debris depending on properties of a map</indent></color>
+<color=#e3e3e3><indent=3>- <indent=6>Note Jump Speed</indent></indent></color>
+<color=#e3e3e3><indent=3>- <indent=6>Notes Per Second</indent></indent></color>
+<color=#e3e3e3><indent=3>- <indent=6>Song Length</indent></indent></color>
+
