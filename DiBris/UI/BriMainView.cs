@@ -2,6 +2,7 @@
 using System;
 using Zenject;
 using Tweening;
+using IPA.Loader;
 using UnityEngine;
 using System.Collections.Generic;
 using BeatSaberMarkupLanguage.Attributes;
@@ -13,8 +14,13 @@ namespace DiBris.UI
     [HotReload(RelativePathToLayout = @"..\Views\main-view.bsml")]
     internal class BriMainView : BSMLAutomaticViewController
     {
+        #region Injections
+
         [Inject]
         protected readonly TweeningManager _tweeningManager = null!;
+
+        [Inject(Id = nameof(DiBris))]
+        protected readonly PluginMetadata pluginMetadata = null!;
 
         [UIComponent("button-grid")]
         protected RectTransform buttonGrid = null!;
@@ -22,10 +28,14 @@ namespace DiBris.UI
         [UIComponent("desc-text")]
         protected CurvedTextMeshPro descText = null!;
 
-        private readonly List<NoTransitionsButton> buttons = new List<NoTransitionsButton>();
-        private readonly List<TextTransitioner> _textTransitioners = new List<TextTransitioner>();
+        [UIValue("version")]
+        protected string Version => $"v{pluginMetadata.Version}";
+
+        #endregion
 
         public event Action<BriFlowCoordinator.NavigationEvent>? EventNavigated;
+        private readonly List<NoTransitionsButton> buttons = new List<NoTransitionsButton>();
+        private readonly List<TextTransitioner> _textTransitioners = new List<TextTransitioner>();
 
         protected override void DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
         {
