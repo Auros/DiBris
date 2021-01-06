@@ -133,23 +133,6 @@ namespace DiBris.Managers
                     else if (val is double dou) return Value.Float((decimal)dou);
                     else if (val is float flo) return Value.Float((decimal)flo);
                     else return Value.Float(0);
-                case JTokenType.Date:
-                    val = (tok as JValue)!.Value;
-                    if (val is DateTime dt) return Value.Text(dt.ToString());
-                    else if (val is DateTimeOffset dto) return Value.Text(dto.ToString());
-                    else return Value.Text("Unknown Date-type token");
-                case JTokenType.TimeSpan:
-                    val = (tok as JValue)!.Value;
-                    if (val is TimeSpan ts) return Value.Text(ts.ToString());
-                    else return Value.Text("Unknown TimeSpan-type token");
-                case JTokenType.Guid:
-                    val = (tok as JValue)!.Value;
-                    if (val is Guid g) return Value.Text(g.ToString());
-                    else return Value.Text("Unknown Guid-type token");
-                case JTokenType.Uri:
-                    val = (tok as JValue)!.Value;
-                    if (val is Uri ur) return Value.Text(ur.ToString());
-                    else return Value.Text("Unknown Uri-type token");
                 case JTokenType.Array:
                     return Value.From((tok as JArray).Select(VisitToValue));
                 case JTokenType.Object:
@@ -159,6 +142,5 @@ namespace DiBris.Managers
                     throw new ArgumentException($"Unknown {nameof(JTokenType)} in parameter");
             }
         }
-
     }
 }

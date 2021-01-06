@@ -38,6 +38,7 @@
 
     <ItemGroup>
       <None Remove="Resources\info.txt" />
+      <None Remove="Resources\logo.png" />
       <None Remove="Resources\pixel.png" />
       <None Remove="Views\conditions.bsml" />
       <None Remove="Views\info-view.bsml" />
@@ -143,6 +144,7 @@
     <ItemGroup>
         <EmbeddedResource Include="manifest.json" />
         <EmbeddedResource Include="Resources\info.txt" />
+        <EmbeddedResource Include="Resources\logo.png" />
         <EmbeddedResource Include="Resources\pixel.png" />
         <EmbeddedResource Include="Views\profile-view.bsml" />
         <EmbeddedResource Include="Views\Settings\conditions.bsml" />
