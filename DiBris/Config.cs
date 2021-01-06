@@ -14,6 +14,9 @@ namespace DiBris
     [Serializable]
     internal class Config
     {
+        [Ignore]
+        public Action<Config>? Updated;
+
         [UseConverter(typeof(VersionConverter))]
         public SemVer.Version Version { get; set; } = new SemVer.Version("0.0.0");
 
@@ -41,6 +44,16 @@ namespace DiBris
         public List<string> MirrorConfigs { get; set; } = new List<string>();
 
         public virtual void CopyFrom(Config _)
+        {
+
+        }
+
+        public virtual void Changed()
+        {
+            Updated?.Invoke(this);
+        }
+        
+        public virtual void Save()
         {
 
         }

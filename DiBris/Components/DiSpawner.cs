@@ -72,7 +72,6 @@ namespace DiBris.Components
                     return;
                 }
 
-                _siraLog.Info("Spawning Debris from: " + _config.Name);
                 Vector3 newPos = notePos;
                 newPos *= _config.AbsolutePositionScale;
                 newPos += _config.AbsolutePositionOffset;

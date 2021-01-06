@@ -14,7 +14,9 @@ namespace DiBris.UI
     [HotReload(RelativePathToLayout = @"..\Views\settings-view.bsml")]
     internal class BriSettingsView : BSMLAutomaticViewController
     {
+        protected Config _config = null!;
         protected UIParser _uiParser = null!;
+        protected ProfileManager _profileManager = null!;
 
         [UIParams]
         protected readonly BSMLParserParams parserParams = null!;
@@ -26,9 +28,11 @@ namespace DiBris.UI
         protected readonly List<object> settingWindows = new List<object>();
 
         [Inject]
-        protected void Construct(UIParser uiParser)
+        protected void Construct(Config config, UIParser uiParser, ProfileManager profileManager)
         {
+            _config = config;
             _uiParser = uiParser;
+            _profileManager = profileManager;
             settingWindows.Add(new General());
             settingWindows.Add(new Multipliers());
             settingWindows.Add(new Positioning());
@@ -62,8 +66,10 @@ namespace DiBris.UI
             }
         }
 
-        protected override void DidDeactivate(bool removedFromHierarchy, bool screenSystemDisabling)
+        protected override async void DidDeactivate(bool removedFromHierarchy, bool screenSystemDisabling)
         {
+            await _profileManager.AllSubProfiles();
+            _profileManager.Save(_config);
             base.DidDeactivate(removedFromHierarchy, screenSystemDisabling);
             tabSelector.textSegmentedControl.didSelectCellEvent -= SelectedCell;
         }

@@ -4,11 +4,11 @@ using System.Linq;
 using IPA.Utilities;
 using SiraUtil.Tools;
 using Newtonsoft.Json;
+using IPA.Config.Data;
+using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using IPA.Config.Data;
 using IPA.Config.Stores.Converters;
-using Newtonsoft.Json.Linq;
 
 namespace DiBris.Managers
 {

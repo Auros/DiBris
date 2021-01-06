@@ -1,11 +1,13 @@
 ﻿using HMUI;
 using Zenject;
 using BeatSaberMarkupLanguage;
+using System;
 
 namespace DiBris.UI
 {
     internal class BriFlowCoordinator : FlowCoordinator
     {
+        private Config _config = null!;
         private BriMainView _briMainView = null!;
         private BriInfoView _briInfoView = null!;
         private BriProfileView _briProfileView = null!;
@@ -14,8 +16,9 @@ namespace DiBris.UI
         private MainFlowCoordinator _mainFlowCoordinator = null!;
 
         [Inject]
-        public void Construct(BriMainView briMainView, BriInfoView briInfoView, BriProfileView briProfileView, BriSettingsView briSettingsView, MainFlowCoordinator mainFlowCoordinator)
+        public void Construct(Config config, BriMainView briMainView, BriInfoView briInfoView, BriProfileView briProfileView, BriSettingsView briSettingsView, MainFlowCoordinator mainFlowCoordinator)
         {
+            _config = config;
             _briMainView = briMainView;
             _briInfoView = briInfoView;
             _briProfileView = briProfileView;
@@ -32,6 +35,12 @@ namespace DiBris.UI
             }
             if (addedToHierarchy) ProvideInitialViewControllers(_briMainView);
             _briMainView.EventNavigated += NavigationReceived;
+            _config.Updated += Changed;
+        }
+
+        private void Changed(Config _)
+        {
+
         }
 
         private void NavigationReceived(NavigationEvent navEvent)
@@ -59,8 +68,10 @@ namespace DiBris.UI
 
         protected override void DidDeactivate(bool removedFromHierarchy, bool screenSystemDisabling)
         {
+            _config.Save();
             base.DidDeactivate(removedFromHierarchy, screenSystemDisabling);
             _briMainView.EventNavigated -= NavigationReceived;
+            _config.Updated -= Changed;
         }
 
         protected override void BackButtonWasPressed(ViewController _)
