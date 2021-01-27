@@ -1,7 +1,6 @@
 ﻿using HMUI;
 using Zenject;
 using BeatSaberMarkupLanguage;
-using System;
 
 namespace DiBris.UI
 {
@@ -68,10 +67,10 @@ namespace DiBris.UI
 
         protected override void DidDeactivate(bool removedFromHierarchy, bool screenSystemDisabling)
         {
-            _config.Save();
             base.DidDeactivate(removedFromHierarchy, screenSystemDisabling);
             _briMainView.EventNavigated -= NavigationReceived;
             _config.Updated -= Changed;
+            _config.Save();
         }
 
         protected override void BackButtonWasPressed(ViewController _)

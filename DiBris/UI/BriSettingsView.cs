@@ -1,4 +1,6 @@
-﻿using Zenject;
+﻿using HMUI;
+using Zenject;
+using UnityEngine;
 using DiBris.Managers;
 using DiBris.UI.Settings;
 using System.Threading.Tasks;
@@ -21,6 +23,9 @@ namespace DiBris.UI
         [UIParams]
         protected readonly BSMLParserParams parserParams = null!;
 
+        [UIComponent("title-bar")]
+        protected readonly ImageView titleBar = null!;
+
         [UIComponent("tab-selector")]
         protected readonly TabSelector tabSelector = null!;
 
@@ -37,11 +42,15 @@ namespace DiBris.UI
             settingWindows.Add(new Multipliers());
             settingWindows.Add(new Positioning());
             settingWindows.Add(new Conditions());
+            settingWindows.Add(new Miscellaneous());
         }
 
         [UIAction("#post-parse")]
         protected async Task Parsed()
         {
+            titleBar.color0 = Color.white;
+            titleBar.color1 = Color.white.ColorWithAlpha(0);
+            titleBar.SetAllDirty();
             if (settingWindows[0] is Parseable parseable)
             {
                 await _uiParser.Parse(parseable);
@@ -56,9 +65,11 @@ namespace DiBris.UI
             parserParams.EmitEvent("refresh");
             foreach (IRefreshable refreshable in settingWindows)
                 refreshable.Refresh();
+
+
         }
 
-        private async void SelectedCell(HMUI.SegmentedControl _, int index)
+        private async void SelectedCell(SegmentedControl _, int index)
         {
             if (settingWindows[index] is Parseable parseable)
             {

@@ -12,7 +12,7 @@ using IPA.Utilities;
 
 namespace DiBris.UI
 {
-    [ViewDefinition("DiBris.UI.Views.profile-view.bsml")]
+    [ViewDefinition("DiBris.Views.profile-view.bsml")]
     [HotReload(RelativePathToLayout = @"..\Views\profile-view.bsml")]
     internal class BriProfileView : BSMLAutomaticViewController
     {

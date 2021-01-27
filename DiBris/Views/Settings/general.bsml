@@ -2,7 +2,7 @@
   <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="round-rect-panel" bg-color="grey" pad="2" pref-width="90">
     <string-setting text="Profile Name"  get-event="update" value="profile-name"      apply-on-change="true" hover-hint="Name this setting profile so you know what it's called." />
     <bool-setting   text="Remove Debris" get-event="update" value="remove-all-debris" apply-on-change="true" hover-hint="Completely prevents debris from spawning under this profile. This setting overrides all other settings for this profile." />
-    <horizontal pref-width="90" horizontal-fit="PreferredSize" spacing="2">
+    <horizontal id="mirror-root" pref-width="90" horizontal-fit="PreferredSize" spacing="2">
       <custom-list id="mirror-list" visible-cells="3" anchor-pos-x="0" cell-size="10" list-width="90">
         <horizontal child-align="MiddleLeft" pref-width="90" pref-height="10">
           <horizontal pref-width="12" horizontal-fit="PreferredSize" size-delta-x="16" spacing="2" pad="2">

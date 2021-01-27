@@ -24,6 +24,9 @@ namespace DiBris.UI.Settings
         [UIComponent("mirror-list")]
         protected CustomCellListTableData mirrorTable = null!;
 
+        [UIComponent("mirror-root")]
+        protected RectTransform mirrorRoot = null!;
+
         [UIValue("profile-name")]
         protected string ProfileName
         {
@@ -41,7 +44,7 @@ namespace DiBris.UI.Settings
         public override async void Refresh()
         {
             mirrorTable.data.Clear();
-            mirrorTable.gameObject.SetActive(true);
+            mirrorRoot.gameObject.SetActive(true);
             foreach (Transform t in mirrorTable.tableView.contentTransform)
             {
                 UnityEngine.Object.Destroy(t.gameObject);
@@ -60,7 +63,7 @@ namespace DiBris.UI.Settings
             mirrorTable.tableView.ReloadData();
             if (mirrorTable.data.Count == 0)
             {
-                mirrorTable.gameObject.SetActive(false);
+                mirrorRoot.gameObject.SetActive(false);
             }
             base.Refresh();
         }

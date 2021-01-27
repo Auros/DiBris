@@ -1,13 +1,13 @@
 ﻿<bg horizontal-fit="PreferredSize" vertical-fit="PreferredSize" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
   <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="round-rect-panel" bg-color="grey" pad="2" pref-width="90">
     <text                               text="Disable debris if a level meets a certain criteria."       font-size="2.25" word-wrapping="true" />
-    <bool-setting                       text="On NJS"                get-event="update" value="on-njs"    apply-on-change="true" on-change="hidden-prop-change" />
-    <slider-setting active="~on-njs"    text="Disable Debris After" get-event="update" value="njs"       apply-on-change="true" formatter="njs-formatter"  min="1"  max="30"  increment="0.5" face-color="purple" />
-    <bool-setting                       text="On NPS"                get-event="update" value="on-nps"    apply-on-change="true" on-change="hidden-prop-change" />
-    <slider-setting active="~on-nps"    text="Disable Debris After" get-event="update" value="nps"       apply-on-change="true" formatter="nps-formatter"  min="1"  max="20"  increment="0.5" face-color="maroon" />
-    <bool-setting                       text="On Song Length"                           value="on-length" apply-on-change="true" on-change="hidden-prop-change" />
-    <slider-setting active="~on-length" text="Disable Debris After" get-event="update" value="length"    apply-on-change="true" formatter="time-formatter" min="10" max="600" increment="10"  face-color="orange" />
+    <bool-setting                       text="On NJS"                  get-event="update" value="on-njs"    apply-on-change="true" on-change="hidden-prop-change" />
+    <slider-setting active="~on-njs"    text="- Disable Debris After"  get-event="update" value="njs"       apply-on-change="true" formatter="njs-formatter"  min="1"  max="30"  increment="0.5" face-color="purple" />
+    <bool-setting                       text="On NPS"                  get-event="update" value="on-nps"    apply-on-change="true" on-change="hidden-prop-change" />
+    <slider-setting active="~on-nps"    text="- Disable Debris After"  get-event="update" value="nps"       apply-on-change="true" formatter="nps-formatter"  min="1"  max="20"  increment="0.5" face-color="maroon" />
+    <bool-setting                       text="On Song Length"                             value="on-length" apply-on-change="true" on-change="hidden-prop-change" />
+    <slider-setting active="~on-length" text="- Disable Debris After"  get-event="update" value="length"    apply-on-change="true" formatter="time-formatter" min="10" max="600" increment="10"  face-color="orange" />
     <text                               text="The condition mode dictates whether if any or all of these conditions need to be met in order for debris to be disabled."       font-size="2.25" word-wrapping="true" />
-    <dropdown-list-setting              text="Condition Mode"        get-event="update" value="mode"      apply-on-change="true" options="condition-types" />
+    <dropdown-list-setting              text="Condition Mode"          get-event="update" value="mode"      apply-on-change="true" options="condition-types" />
   </vertical>
 </bg>

@@ -20,6 +20,8 @@ namespace DiBris
         [UseConverter(typeof(VersionConverter))]
         public SemVer.Version Version { get; set; } = new SemVer.Version("0.0.0");
 
+        // Initial Design
+
         public string Name { get; set; } = "Default";
         public bool RemoveDebris { get; set; } = false;
         public float LifetimeMultiplier { get; set; } = 1f;
@@ -43,19 +45,20 @@ namespace DiBris
         [NonNullable, UseConverter(typeof(ListConverter<string>))]
         public List<string> MirrorConfigs { get; set; } = new List<string>();
 
-        public virtual void CopyFrom(Config _)
-        {
+        // 1.0.0-a2
+        public bool FixateRotationToZero { get; set; } = false;
+        public bool FixateZPos { get; set; } = false;
 
-        }
+        public bool FixedLifetime { get; set; } = false;
+        public float FixedLifetimeLength { get; set; } = 0f;
 
-        public virtual void Changed()
-        {
-            Updated?.Invoke(this);
-        }
-        
-        public virtual void Save()
-        {
+        public bool SnapToGrid { get; set; } = false;
+        public float GridScale { get; set; } = 1f;
 
-        }
+
+        // Virtual Config State Methods
+        public virtual void Save() { }
+        public virtual void CopyFrom(Config _) { }
+        public virtual void Changed() => Updated?.Invoke(this);
     }
 }
