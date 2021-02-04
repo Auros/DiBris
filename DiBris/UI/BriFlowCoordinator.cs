@@ -63,6 +63,16 @@ namespace DiBris.UI
                     SetRightScreenViewController(null, ViewController.AnimationType.Out);
                     break;
             }
+            if (navEvent == NavigationEvent.Reset)
+            {
+                var version = _config.Version;
+                _config.CopyFrom(new Config
+                {
+                    Version = version
+                });
+                _config.Save();
+                _config.Changed();
+            }
         }
 
         protected override void DidDeactivate(bool removedFromHierarchy, bool screenSystemDisabling)
@@ -83,7 +93,8 @@ namespace DiBris.UI
             Info,
             Profile,
             Settings,
-            Unknown
+            Unknown,
+            Reset
         }
     }
 }

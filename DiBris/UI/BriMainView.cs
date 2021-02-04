@@ -6,11 +6,11 @@ using IPA.Loader;
 using UnityEngine;
 using System.Linq;
 using DiBris.Managers;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using BeatSaberMarkupLanguage.Parser;
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.ViewControllers;
-using System.Threading.Tasks;
 
 namespace DiBris.UI
 {
@@ -63,11 +63,11 @@ namespace DiBris.UI
             descText.alpha = 0f;
             _textTransitioners.Clear();
             _textTransitioners.Add(new TextTransitioner("Learn more about this mod", buttons[0]));
-            _textTransitioners.Add(new TextTransitioner("Start the tutorial to understand the menu", buttons[1]));
-            _textTransitioners.Add(new TextTransitioner("Open the GitHub page (in your browser)", buttons[2]));
+            _textTransitioners.Add(new TextTransitioner("Create, switch, and remove your config profile(s)", buttons[1]));
+            _textTransitioners.Add(new TextTransitioner("Edit the settings for the current profile", buttons[2]));
             _textTransitioners.Add(new TextTransitioner("Donate to the mod creator (opens in browser)", buttons[3]));
-            _textTransitioners.Add(new TextTransitioner("Create, switch, and remove your config profile(s)", buttons[4]));
-            _textTransitioners.Add(new TextTransitioner("Edit the settings for the current profile", buttons[5]));
+            _textTransitioners.Add(new TextTransitioner("Open the GitHub page (in your browser)", buttons[4]));
+            _textTransitioners.Add(new TextTransitioner("Reset all your settings.", buttons[5]));
             foreach (var transitioner in _textTransitioners)
                 transitioner.StateChanged += ButtonSelectionStateChanged;
 
@@ -125,7 +125,9 @@ namespace DiBris.UI
                 Version = version
             });
             _config.Save();
+            _config.Changed();
             parserParams.EmitEvent("hide-reset");
+            EventNavigated?.Invoke(BriFlowCoordinator.NavigationEvent.Reset);
         }
 
         private class TextTransitioner : IDisposable
