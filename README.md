@@ -24,6 +24,7 @@ This mod was originally commissioned by Mawntee#6969
 * You can create multiple profiles.
 * Profiles can be "mirrored" to be loaded together.
 * To create a new profile, pick a profile you want to copy the settings from, rename it, go to Profiles, and hit Save Profile.
+* Profile files are saved in `UserData/Di/Bris/Profiles/`. You can share these files with your friends. As long as you place it in the correct folder, they will load.
 
 ## Showcase
 
