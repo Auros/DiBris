@@ -1,15 +1,15 @@
 ﻿<bg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
   <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="round-rect-panel" bg-color="grey" pad="2" pref-width="90">
     
-    <text                                        text="Locks all note debris rotation to zero." font-size="2.25"       word-wrapping="true" />
     <bool-setting                                text="Zero Out Rotation" get-event="update" value="fixate-rotation"   apply-on-change="true" />
+    <text                                        text="  Locks all note debris rotation to zero." font-size="2.25"       word-wrapping="true" />
     
-    <text                                        text="Locks the Z position of spawned debris to it's absolute value"  font-size="2.25"       word-wrapping="true" />
     <bool-setting                                text="Fix Z Position" get-event="update" value="fixate-zpos"          apply-on-change="true" />
+    <text                                        text="  Locks the Z position of spawned debris to it's absolute value"  font-size="2.25"       word-wrapping="true" />
     
-    <text                                        text='As of 1.12.0, the base game note debris "lifetime" is based on the time until the next note. This allows you to override that behaviour and set to your own value.'       font-size="2.25" word-wrapping="true" />
     <bool-setting                                text="Fixed Lifetime"    get-event="update" value="do-fixed-lifetime" apply-on-change="true" on-change="hidden-prop-change" />
     <slider-setting active="~do-fixed-lifetime"  text="- Length"          get-event="update" value="fixed-lifetime"    apply-on-change="true" min="0.1" max="10" increment="0.1" formatter="time-formatter" />
+    <text                                        text='  As of 1.12.0, the base game note debris "lifetime" (time until the debris fully dissolves) is based on the time until the next note. This allows you to override that behaviour and set lifetime to your own value.'       font-size="2.25" word-wrapping="true" />
   
     <bool-setting                                text="Snap To Grid"      get-event="update" value="do-grid-snap"      apply-on-change="true" on-change="hidden-prop-change" />
     <slider-setting active="~do-grid-snap"  text="- Grid Scale"      get-event="update" value="grid-scale"        apply-on-change="true" min="0"   max="5"  increment="0.25" />

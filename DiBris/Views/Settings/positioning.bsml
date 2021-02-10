@@ -4,7 +4,7 @@
     <slider-setting text="Absolute Offset X" get-event="update" value="pos-offset-x" apply-on-change="true" formatter="length-formatter"  min="-5" max="5" increment="0.1" />
     <slider-setting text="Absolute Offset Y" get-event="update" value="pos-offset-y" apply-on-change="true" formatter="length-formatter"  min="-5" max="5" increment="0.1" />
     <slider-setting text="Absolute Offset Z" get-event="update" value="pos-offset-z" apply-on-change="true" formatter="length-formatter"  min="0"  max="8" increment="0.1" />
-    <text           text="Advanced Setting: Absolute Scaling will multiply the distance between each relative debris."                    font-size="3"    word-wrapping="true" />
+    <text           text="Advanced: Absolute Scaling will multiply the distance between each relative debris."                    font-size="3"    word-wrapping="true" />
     <slider-setting text="Absolute Scale"    get-event="update" value="pos-scale"    apply-on-change="true" formatter="percent-formatter" min="0"  max="5" increment="0.1" />
   </vertical>
 </bg>

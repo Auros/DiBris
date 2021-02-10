@@ -76,6 +76,7 @@ namespace DiBris.UI
                 profileList.data.Add(new ConfigCellInfo(profile));
             }
             profileList.tableView.ReloadData();
+            profileList.tableView.ClearSelection();
 
             if (updateText)
                 StatusText = $"Loaded {profileList.data.Count} profiles.";
