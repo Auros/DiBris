@@ -1,0 +1,10 @@
+﻿<bg horizontal-fit="PreferredSize" vertical-fit="PreferredSize" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
+  <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="round-rect-panel" bg-color="grey" pad="2" pref-width="90">
+    <text font-size="3" text="Offset settings will spawn the debris offset of where they should be. Hint: when looking forwards, X is left/right, Y is up/down, and Z is forwards/backwards." word-wrapping="true" />
+    <slider-setting text="Absolute Offset X" get-event="update" value="pos-offset-x" apply-on-change="true" formatter="length-formatter"  min="-5" max="5" increment="0.1" />
+    <slider-setting text="Absolute Offset Y" get-event="update" value="pos-offset-y" apply-on-change="true" formatter="length-formatter"  min="-5" max="5" increment="0.1" />
+    <slider-setting text="Absolute Offset Z" get-event="update" value="pos-offset-z" apply-on-change="true" formatter="length-formatter"  min="0"  max="8" increment="0.1" />
+    <text           text="Advanced: Absolute Scaling will multiply the distance between each relative debris."                    font-size="3"    word-wrapping="true" />
+    <slider-setting text="Absolute Scale"    get-event="update" value="pos-scale"    apply-on-change="true" formatter="percent-formatter" min="0"  max="5" increment="0.1" />
+  </vertical>
+</bg>

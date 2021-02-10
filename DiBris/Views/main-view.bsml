@@ -1,0 +1,25 @@
+﻿<bg horizontal-fit="PreferredSize" vertical-fit="PreferredSize" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
+  <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize">
+    <img id="logo-image" src="DiBris.Resources.logo.png" pref-width="50" pref-height="50" preserve-aspect="true" />
+    <grid id="button-grid" horizontal-fit="PreferredSize" vertical-fit="PreferredSize" child-align="MiddleCenter" cell-size-x="26" cell-size-y="10" spacing-x="3">
+      <button text="INFO"     on-click="clicked-info-button"      pref-width="28" pref-height="10" />
+      <button text="PROFILES" on-click="clicked-profile-button"   pref-width="28" pref-height="10" face-color="#ffd52e" />
+      <button text="SETTINGS" on-click="clicked-settings-button"  pref-width="28" pref-height="10" face-color="#2effd2" />
+      <button text="DONATE"   on-click="clicked-donate-button"    pref-width="28" pref-height="10" />
+      <button text="GITHUB"   on-click="clicked-github-button"    pref-width="28" pref-height="10" />
+      <button text="RESET"    event-click="show-reset"            pref-width="28" pref-height="10" />
+    </grid>
+    <text id="desc-text" text=" " face-color="#adadad" align="Right" italics="true" font-size="5" />
+  </vertical>
+  <text text="~version" align="Left" size-delta-x="82" anchor-pos-y="-10" font-size="5.5" italics="true" />
+  <modal size-delta-x="60" size-delta-y="40" show-event="show-reset" hide-event="hide-reset" clickerino-offerino-closerino="true">
+    <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" pref-width="60" pref-height="40" pad="2">
+      <text text="Warning" face-color="#c90616" font-size="6" align="Center" word-wrapping="true" />
+      <text text="Are you sure you want to reset your config for DiBris? Everything will be erased." word-wrapping="true" />
+      <horizontal horizontal-fit="PreferredSize" vertical-fit="PreferredSize" pref-width="60" pref-height="10">
+        <button text="Cancel" event-click="hide-reset" pref-width="25" />
+        <button text="Apply" on-click="reset" event-click="hide-reset" pref-width="25" />
+      </horizontal>
+    </vertical>
+  </modal>
+</bg>

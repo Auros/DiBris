@@ -37,6 +37,41 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Resources\info.txt" />
+      <None Remove="Resources\logo.png" />
+      <None Remove="Resources\pixel.png" />
+      <None Remove="Views\conditions.bsml" />
+      <None Remove="Views\info-view.bsml" />
+      <None Remove="Views\main-view.bsml" />
+      <None Remove="Views\profile-view.bsml" />
+      <None Remove="Views\settings-view.bsml" />
+      <None Remove="Views\Settings\general.bsml" />
+      <None Remove="Views\Settings\miscellaneous.bsml" />
+      <None Remove="Views\Settings\multipliers.bsml" />
+      <None Remove="Views\Settings\positioning.bsml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="BeatmapCore">
+          <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\BeatmapCore.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="BSML">
+          <HintPath>$(BeatSaberDir)\Plugins\BSML.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="GameplayCore">
+          <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\GameplayCore.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+          <HintPath>$(BeatSaberDir)\Libs\Newtonsoft.Json.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="SemVer">
+          <HintPath>$(BeatSaberDir)\Libs\SemVer.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
         <Reference Include="SiraUtil">
           <HintPath>$(BeatSaberDir)\Plugins\SiraUtil.dll</HintPath>
           <Private>False</Private>
@@ -48,6 +83,14 @@
         <Reference Include="Unity.TextMeshPro">
             <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\Unity.TextMeshPro.dll</HintPath>
             <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule">
+          <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+          <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine.UI">
             <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\UnityEngine.UI.dll</HintPath>
@@ -101,6 +144,18 @@
 
     <ItemGroup>
         <EmbeddedResource Include="manifest.json" />
+        <EmbeddedResource Include="Resources\info.txt" />
+        <EmbeddedResource Include="Resources\logo.png" />
+        <EmbeddedResource Include="Resources\pixel.png" />
+        <EmbeddedResource Include="Views\profile-view.bsml" />
+        <EmbeddedResource Include="Views\Settings\conditions.bsml" />
+        <EmbeddedResource Include="Views\info-view.bsml" />
+        <EmbeddedResource Include="Views\main-view.bsml" />
+        <EmbeddedResource Include="Views\settings-view.bsml" />
+        <EmbeddedResource Include="Views\Settings\general.bsml" />
+        <EmbeddedResource Include="Views\Settings\miscellaneous.bsml" />
+        <EmbeddedResource Include="Views\Settings\multipliers.bsml" />
+        <EmbeddedResource Include="Views\Settings\positioning.bsml" />
     </ItemGroup>
 
     <ItemGroup>	
@@ -108,9 +163,9 @@
     </ItemGroup>
     
     <ItemGroup>
-        <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
-        <None Include="Directory.Build.targets" Condition="Exists('Directory.Build.targets')" />
-        <None Include="DiBris.csproj.user" Condition="Exists('DiBris.csproj.user')" />
+        <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" Visible="false" />
+        <None Include="Directory.Build.targets" Condition="Exists('Directory.Build.targets')" Visible="false" />
+        <None Include="DiBris.csproj.user" Condition="Exists('DiBris.csproj.user')" Visible="false" />
     </ItemGroup>
 
     <ItemGroup>

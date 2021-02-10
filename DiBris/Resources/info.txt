@@ -1,0 +1,25 @@
+﻿<size=125%><align="center">What is DiBris?</align></size>
+
+<color=#e3e3e3><indent=3>DiBris is a mod which allows you to customize your debris.</indent></color>
+<color=#e3e3e3><indent=3>This mod was originally commissioned by Mawntee#6969</indent></color>
+
+<size=125%><align="center">What can I customize?</align></size>
+
+- <color=#e3e3e3><indent=3>Completely remove debris (so it doesn't spawn at all)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Lifetime (how long it's visible before it fades)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Velocity (how fast it moves)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Rotation (how much it rotates)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Gravity (can be negative!)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Scale (the size of the note)</indent></color>
+- <color=#e3e3e3><indent=3>Debris Spawn Offset (positional offset)</indent></color>
+- <color=#e3e3e3><indent=3>Auto-enable/disable debris depending on properties of a map</indent></color>
+<color=#e3e3e3><indent=3>- <indent=6>Note Jump Speed</indent></indent></color>
+<color=#e3e3e3><indent=3>- <indent=6>Notes Per Second</indent></indent></color>
+<color=#e3e3e3><indent=3>- <indent=6>Song Length</indent></indent></color>
+- <color=#e3e3e3><indent=3>Fixed Lifeline</indent></color>
+
+<size=125%><align="center">Profile System</align></size>
+- <color=#e3e3e3><indent=3>You can create multiple profiles.</indent></color>
+- <color=#e3e3e3><indent=3>Profiles can be "mirrored" to be loaded together.</indent></color>
+- <color=#e3e3e3><indent=3>To create a new profile, pick a profile you want to copy the settings from, rename it, go to Profiles, and hit Save Profile.</indent></color>
+

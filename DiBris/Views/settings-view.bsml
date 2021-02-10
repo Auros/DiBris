@@ -1,0 +1,15 @@
+﻿<bg horizontal-fit="PreferredSize" vertical-fit="PreferredSize" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
+  <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" pref-height="80">
+    <horizontal id="title-bar" horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="panel-fade-gradient" bg-color="#00FFB1" pref-width="117">
+      <text text="Settings" align="Center" font-size="7" />
+    </horizontal>
+    <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" pref-width="60" pref-height="8">
+      <tab-selector id="tab-selector" tab-tag="settings-tab" />
+    </vertical>
+    <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize" pref-height="62">
+      <macro.for-each hosts="setting-windows" pass-back-tags="true">
+        <tab id="root" tags="settings-tab" tab-name="~name" />
+      </macro.for-each>
+    </vertical>
+  </vertical>
+</bg>

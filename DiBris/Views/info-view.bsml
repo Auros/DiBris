@@ -1,0 +1,10 @@
+﻿<bg horizontal-fit="PreferredSize" vertical-fit="PreferredSize" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd">
+  <vertical horizontal-fit="PreferredSize" vertical-fit="PreferredSize">
+    <horizontal horizontal-fit="PreferredSize" vertical-fit="PreferredSize" bg="panel-top-gradient" bg-color="cyan" pref-width="90">
+      <text text="Info" align="Center" font-size="7" />
+    </horizontal>
+    <horizontal horizontal-fit="PreferredSize" vertical-fit="PreferredSize" pref-width="90" pref-height="60">
+      <text-page text="~info-text" />
+    </horizontal>
+  </vertical>
+</bg>
