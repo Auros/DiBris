@@ -24,3 +24,9 @@ This mod was originally commissioned by Mawntee#6969
 * You can create multiple profiles.
 * Profiles can be "mirrored" to be loaded together.
 * To create a new profile, pick a profile you want to copy the settings from, rename it, go to Profiles, and hit Save Profile.
+
+## Showcase
+
+Here are just a few things DiBris can do.
+
+[![DiBris Showcase Thumbnail](https://yt-embed.herokuapp.com/embed?v=HfhBEUthvL8)](https://www.youtube.com/watch?v=HfhBEUthvL8)
