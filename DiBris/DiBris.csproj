@@ -9,7 +9,7 @@
         <LocalRefsDir Condition="Exists('..\Refs')">..\Refs</LocalRefsDir>
         <BeatSaberDir>$(LocalRefsDir)</BeatSaberDir>
         <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
-        <Copyright>Copyright © Auros 2020</Copyright>
+        <Copyright>Copyright © Auros 2021</Copyright>
         <AssemblyName>DiBris</AssemblyName>
         <RootNamespace>DiBris</RootNamespace>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
