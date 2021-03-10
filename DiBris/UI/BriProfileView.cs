@@ -94,7 +94,7 @@ namespace DiBris.UI
             _profileManager.Save(_config);
             await ReloadProfiles();
             if (!overwrite)
-                profileList.tableView.ScrollToCellWithIdx(profileList.data.Count(), TableViewScroller.ScrollPositionType.End, true);
+                profileList.tableView.ScrollToCellWithIdx(profileList.data.Count(), TableView.ScrollPositionType.End, true);
         }
 
         [UIAction("load")]
