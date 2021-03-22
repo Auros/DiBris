@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 
 namespace DiBris.Components
 {
-    internal class DiSpawner : NoteDebrisSpawner
+    internal class DiSpawner : NoteDebrisSpawner, INoteDebrisDidFinishEvent
     {
         private SiraLog _siraLog = null!;
         private readonly List<(bool, Config)> _configs = new List<(bool, Config)>();
@@ -98,16 +98,16 @@ namespace DiBris.Components
                     newPos = new Vector3(newPos.x, newPos.y, conf.AbsolutePositionOffsetZ);
                 }
 
+                Vector3 noteSize = noteScale * conf.Scale;
+
                 var debrisA = DebrisDecorator(cutPoint.y, cutNormal, saberSpeed, saberDir, timeToNextColorNote, moveVec, out float liquid, out Vector3 next, out Vector3 forceEn, out Vector3 torque);
-                debrisA.transform.localScale *= conf.Scale;
                 if (conf.FixedLifetime) liquid = conf.FixedLifetimeLength;
-                debrisA.Init(colorType, newPos, noteRot, noteScale, transform.position, transform.rotation, cutPoint, -cutNormal, (-forceEn * _fromCenterSpeed + next) * conf.VelocityMultiplier, -torque * conf.RotationMultiplier, liquid * conf.LifetimeMultiplier);
+                debrisA.Init(colorType, newPos, noteRot, noteSize, transform.position, transform.rotation, cutPoint, -cutNormal, (-forceEn * _fromCenterSpeed + next) * conf.VelocityMultiplier, -torque * conf.RotationMultiplier, liquid * conf.LifetimeMultiplier);
                 StartCoroutine(MultiplyGravity(debrisA, conf.GravityMultiplier, shouldInteract));
 
                 var debrisB = DebrisDecorator(cutPoint.y, cutNormal, saberSpeed, saberDir, timeToNextColorNote, moveVec, out float liquid2, out Vector3 next2, out Vector3 forceEn2, out Vector3 torque2);
-                debrisB.transform.localScale *= conf.Scale;
                 if (conf.FixedLifetime) liquid2 = conf.FixedLifetimeLength;
-                debrisB.Init(colorType, newPos, noteRot, noteScale, transform.position, transform.rotation, cutPoint, cutNormal, (forceEn2 * _fromCenterSpeed + next2) * conf.VelocityMultiplier, torque2 * conf.RotationMultiplier, liquid2 * conf.LifetimeMultiplier);
+                debrisB.Init(colorType, newPos, noteRot, noteSize, transform.position, transform.rotation, cutPoint, cutNormal, (forceEn2 * _fromCenterSpeed + next2) * conf.VelocityMultiplier, torque2 * conf.RotationMultiplier, liquid2 * conf.LifetimeMultiplier);
                 StartCoroutine(MultiplyGravity(debrisB, conf.GravityMultiplier, shouldInteract));
             }
         }
@@ -169,7 +169,6 @@ namespace DiBris.Components
 
         public new void HandleNoteDebrisDidFinish(NoteDebris noteDebris)
         {
-            noteDebris.transform.localScale = Vector3.one;
             noteDebris.didFinishEvent.Remove(this);
             if (_physicsTable.TryGetValue(noteDebris, out NoteDebrisRigidbodyPhysics rigidPhysics))
             {
