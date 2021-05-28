@@ -35,7 +35,7 @@ namespace DiBris
                 });
 
             zenjector
-                .On<MenuInstaller>()
+                .On<MainSettingsMenuViewControllersInstaller>()
                 .Pseudo(Container =>
                 {
                     Container.Bind<UIParser>().AsSingle();
