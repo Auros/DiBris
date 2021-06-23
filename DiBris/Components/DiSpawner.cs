@@ -99,15 +99,15 @@ namespace DiBris.Components
                 }
 
                 var debrisA = DebrisDecorator(cutPoint.y, cutNormal, saberSpeed, saberDir, timeToNextColorNote, moveVec, out float liquid, out Vector3 next, out Vector3 forceEn, out Vector3 torque);
-                debrisA.transform.localScale *= conf.Scale;
                 if (conf.FixedLifetime) liquid = conf.FixedLifetimeLength;
                 debrisA.Init(colorType, newPos, noteRot, moveVec, noteScale, transform.position, transform.rotation, cutPoint, -cutNormal, (-forceEn * _fromCenterSpeed + next) * conf.VelocityMultiplier, -torque * conf.RotationMultiplier, liquid * conf.LifetimeMultiplier);
+                debrisA.transform.localScale *= conf.Scale;
                 StartCoroutine(MultiplyGravity(debrisA, conf.GravityMultiplier, shouldInteract));
 
                 var debrisB = DebrisDecorator(cutPoint.y, cutNormal, saberSpeed, saberDir, timeToNextColorNote, moveVec, out float liquid2, out Vector3 next2, out Vector3 forceEn2, out Vector3 torque2);
-                debrisB.transform.localScale *= conf.Scale;
                 if (conf.FixedLifetime) liquid2 = conf.FixedLifetimeLength;
                 debrisB.Init(colorType, newPos, noteRot, moveVec, noteScale, transform.position, transform.rotation, cutPoint, cutNormal, (forceEn2 * _fromCenterSpeed + next2) * conf.VelocityMultiplier, torque2 * conf.RotationMultiplier, liquid2 * conf.LifetimeMultiplier);
+                debrisB.transform.localScale *= conf.Scale;
                 StartCoroutine(MultiplyGravity(debrisB, conf.GravityMultiplier, shouldInteract));
             }
         }
@@ -167,7 +167,7 @@ namespace DiBris.Components
             RigidBody(ref rigidPhysics).isKinematic = !shouldInteract;
         }
 
-        public new void HandleNoteDebrisDidFinish(NoteDebris noteDebris)
+        public override void HandleNoteDebrisDidFinish(NoteDebris noteDebris)
         {
             noteDebris.transform.localScale = Vector3.one;
             noteDebris.didFinishEvent.Remove(this);
@@ -177,6 +177,7 @@ namespace DiBris.Components
                 RigidBody(ref rigidPhysics).isKinematic = false;
                 RigidBody(ref rigidPhysics).useGravity = true;
                 Gravity(ref simplePhysics) = Physics.gravity;
+                _physicsTable.Remove(noteDebris);
             }
             _noteDebrisPool.Despawn(noteDebris);
         }
